@@ -206,10 +206,7 @@ if(!isset($_SESSION['login_customer'])){
                 <br>
                 <h4> <strong>Return Date: </strong> <?php echo $rent_end_date; ?></h4>
                 <br>
-                <h4> <strong>Employee Name:</strong>  <?php echo $client_name; ?></h4>
-                <br>
-                <h4> <strong>Employee Contact: </strong> <?php echo $client_phone; ?></h4>
-                <br>
+                
             </div>
         </div>
         <div class="col-md-12" style="float: none; margin: 0 auto; text-align: center;">
