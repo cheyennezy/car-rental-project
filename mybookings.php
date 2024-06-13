@@ -133,8 +133,8 @@ $conn = Connect();
 <th width="15%">Car</th>
 <th width="15%">Start Date</th>
 <th width="15%">End Date</th>
-<th width="15%">Distance (kms)</th>
-<th width="15%">Number of Days</th>
+<th width="15%">New Car</th>
+<th width="15%">Old Car</th>
 <th width="15%">Total Amount</th>
 </tr>
 </thead>
