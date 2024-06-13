@@ -117,7 +117,7 @@ $conn = Connect();
 $id = $_GET["id"];
 $distance = NULL;
 $distance_or_days = $conn->real_escape_string($_POST['distance_or_days']);
-$fare = $conn->real_escape_string($_POST['hid_fare']);
+
 $total_amount = $distance_or_days * $fare;
 $car_return_date = date('Y-m-d');
 $return_status = "R";
@@ -163,7 +163,7 @@ if($charge_type == "days"){
 $result1 = $conn->query($sql1);
 
 if ($result1){
-     $sql2 = "UPDATE cars c, rentedcars rc SET c.car_availability='yes', d.driver_availability='yes' 
+     $sql2 = "UPDATE cars c, rentedcars rc SET c.car_availability='yes'
      WHERE rc.car_id=c.car_id AND rc.customer_username = '$login_customer' AND rc.id = '$id'";
      $result2 = $conn->query($sql2);
 }
