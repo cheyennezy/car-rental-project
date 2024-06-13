@@ -46,7 +46,6 @@ $conn = Connect();
             <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Control Panel <span class="caret"></span> </a>
                 <ul class="dropdown-menu">
               <li> <a href="entercar.php">Add Car</a></li>
-              <li> <a href="enterdriver.php"> Add Driver</a></li>
               <li> <a href="clientview.php">View</a></li>
 
             </ul>
@@ -164,8 +163,8 @@ if($charge_type == "days"){
 $result1 = $conn->query($sql1);
 
 if ($result1){
-     $sql2 = "UPDATE cars c, driver d, rentedcars rc SET c.car_availability='yes', d.driver_availability='yes' 
-     WHERE rc.car_id=c.car_id AND rc.driver_id=d.driver_id AND rc.customer_username = '$login_customer' AND rc.id = '$id'";
+     $sql2 = "UPDATE cars c, rentedcars rc SET c.car_availability='yes', d.driver_availability='yes' 
+     WHERE rc.car_id=c.car_id AND rc.customer_username = '$login_customer' AND rc.id = '$id'";
      $result2 = $conn->query($sql2);
 }
 else {
@@ -202,10 +201,10 @@ else {
                 <h4> <strong>Vehicle Number:</strong> <?php echo $car_nameplate; ?></h4>
                 <br>
                 <h4> <strong>Fare:&nbsp;</strong>  Rs. <?php 
-            if($charge_type == "days"){
-                    echo ($fare . "/day");
+            if($charge_type == "NEW_Car"){
+                    echo ($NEW_Car . "/NT");
                 } else {
-                    echo ($fare . "/km");
+                    echo ($OLD_Car . "/NT");
                 }
             ?></h4>
                 <br>
@@ -217,10 +216,10 @@ else {
                 <br>
                 <h4> <strong>Car Return Date: </strong> <?php echo $car_return_date; ?> </h4>
                 <br>
-                <?php if($charge_type == "days"){?>
-                    <h4> <strong>Number of days:</strong> <?php echo $distance_or_days; ?>day(s)</h4>
+                <?php if($charge_type == "NEW_Car"){?>
+                    <h4> <strong>Cost of new car:</strong> <?php echo $NEW_Car; ?>NT</h4>
                 <?php } else { ?>
-                    <h4> <strong>Distance Travelled:</strong> <?php echo $distance_or_days; ?>km(s)</h4>
+                    <h4> <strong>Cost of old car:</strong> <?php echo $OLD_Car; ?>NT</h4>
                 <?php } ?>
                 <br>
                 <?php
