@@ -149,7 +149,7 @@ function dateDiff($start, $end) {
            <h5> End Date:&nbsp;  <?php echo($rent_end_date);?></h5>
 
            
-    
+    <!--
           <?php if($charge_type == "km") { ?>
           <div class="form-group">
             <input type="text" class="form-control" id="distance_or_days" name="distance_or_days" placeholder="Enter the distance travelled (in km)" required="" autofocus>
@@ -159,7 +159,7 @@ function dateDiff($start, $end) {
             <input type="hidden" name="distance_or_days" value="<?php echo $no_of_days; ?>">
           <?php } ?>
           <input type="hidden" name="hid_fare" value="<?php echo $fare; ?>">
-
+      -->
            <input type="submit" name="submit" value="submit" class="btn btn-success pull-right">    
         </form>
       </div>
