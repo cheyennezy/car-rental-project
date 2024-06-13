@@ -45,7 +45,6 @@ $conn = Connect();
             <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Control Panel <span class="caret"></span> </a>
                 <ul class="dropdown-menu">
               <li> <a href="entercar.php">Add Car</a></li>
-              <li> <a href="enterdriver.php"> Add Driver</a></li>
               <li> <a href="clientview.php">View</a></li>
 
             </ul>
@@ -114,7 +113,7 @@ $conn = Connect();
  
 <?php $login_customer = $_SESSION['login_customer']; 
 
-    $sql1 = "SELECT c.car_name, rc.rent_start_date, rc.rent_end_date, rc.fare, rc.charge_type, rc.id FROM rentedcars rc, cars c
+    $sql1 = "SELECT c.car_name, rc.rent_start_date, rc.rent_end_date, rc.charge_type, rc.id FROM rentedcars rc, cars c
     WHERE rc.customer_username='$login_customer' AND c.car_id=rc.car_id AND rc.return_status='NR'";
     $result1 = $conn->query($sql1);
 
@@ -134,7 +133,6 @@ $conn = Connect();
 <th width="30%">Car</th>
 <th width="20%">Rent Start Date</th>
 <th width="20%">Rent End Date</th>
-<th width="20%">Fare</th>
 <th width="10%">Action</th>
 </tr>
 </thead>
@@ -145,12 +143,6 @@ $conn = Connect();
 <td><?php echo $row["car_name"]; ?></td>
 <td><?php echo $row["rent_start_date"] ?></td>
 <td><?php echo $row["rent_end_date"]; ?></td>
-<td>Rs. <?php 
-    if($row["charge_type"] == "days"){
-        echo ($row["fare"] . "/day");
-    } else {
-        echo ($row["fare"] . "/km");
-    }
  
 
 ?></td>
